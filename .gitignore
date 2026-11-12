@@ -1,8 +1,25 @@
+# Dependencies & Environments
 **/vendor/
 **/node_modules/
 **/venv/
+**/.venv/
+venv/
+.venv/
 **/__pycache__/
+*.pyc
+
+# Environment files
 .env
 **/.env
+
+# Jupyter
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# Heavy weights (>50MB experimental backbones)
+resnet50_best.pt
+*.pt.large
+
+# Temporary images
 *.jpg
 *.jpeg
