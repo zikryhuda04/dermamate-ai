@@ -1,0 +1,83 @@
+{
+  "winner_model": "efficientnet_b0",
+  "kpi_accuracy_target": 0.85,
+  "kpi_latency_target_seconds": 10.0,
+  "latency_benchmark_ms": {
+    "mean_ms": 40.17,
+    "p95_ms": 41.54,
+    "max_ms": 273.31
+  },
+  "metrics": [
+    {
+      "model": "resnet50",
+      "split": "val",
+      "accuracy": 0.7826,
+      "macro_precision": 0.7278,
+      "macro_recall": 0.6975,
+      "macro_f1": 0.706,
+      "kpi_passed_85pct": false
+    },
+    {
+      "model": "resnet50",
+      "split": "test",
+      "accuracy": 0.7447,
+      "macro_precision": 0.6945,
+      "macro_recall": 0.7689,
+      "macro_f1": 0.7116,
+      "kpi_passed_85pct": false
+    },
+    {
+      "model": "efficientnet_b0",
+      "split": "val",
+      "accuracy": 0.8043,
+      "macro_precision": 0.725,
+      "macro_recall": 0.7225,
+      "macro_f1": 0.7197,
+      "kpi_passed_85pct": false
+    },
+    {
+      "model": "efficientnet_b0",
+      "split": "test",
+      "accuracy": 0.8511,
+      "macro_precision": 0.8633,
+      "macro_recall": 0.8525,
+      "macro_f1": 0.8564,
+      "kpi_passed_85pct": true
+    },
+    {
+      "model": "soft_voting_ensemble",
+      "split": "val",
+      "accuracy": 0.8261,
+      "macro_precision": 0.7881,
+      "macro_recall": 0.7767,
+      "macro_f1": 0.78,
+      "kpi_passed_85pct": false
+    },
+    {
+      "model": "soft_voting_ensemble",
+      "split": "test",
+      "accuracy": 0.8298,
+      "macro_precision": 0.7919,
+      "macro_recall": 0.8303,
+      "macro_f1": 0.7983,
+      "kpi_passed_85pct": false
+    }
+  ],
+  "sample_prediction": {
+    "image_path": "dry_0001_94c84bcf6934655e.jpg",
+    "predicted_skin_type": "oily",
+    "confidence_pct": 71.5,
+    "probabilities_pct": {
+      "acne": 0.87,
+      "combination": 14.57,
+      "dry": 8.26,
+      "normal": 4.79,
+      "oily": 71.5
+    },
+    "face_detected": true,
+    "model_architecture": "efficientnet_b0",
+    "inference_time_seconds": 0.2733,
+    "inference_time_ms": 273.31,
+    "kpi_latency_passed": true
+  }
+}
