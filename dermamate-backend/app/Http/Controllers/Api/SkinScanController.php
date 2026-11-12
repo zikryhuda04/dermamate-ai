@@ -60,16 +60,26 @@ class SkinScanController extends Controller
             $aiResult = $response->json();
             $predictedSkinType = $aiResult['skin_type'] ?? 'Normal';
 
-            // Query produk yang cocok dari tabel products
-            $matchedProducts = Product::where('skin_type', 'LIKE', "%{$predictedSkinType}%")
-                ->orWhere('target_problem', 'LIKE', "%{$predictedSkinType}%")
-                ->limit(3)
-                ->pluck('product_name')
-                ->implode(', ');
+            // Normalisasi kata kunci pencarian untuk 5 kelas agar akurat di tabel products
+            $searchKeyword = match ($predictedSkinType) {
+                'Jerawat (Acne)' => 'Jerawat',
+                'Kombinasi'      => 'Kombinasi',
+                'Berminyak'      => 'Berminyak',
+                'Kering'         => 'Kering',
+                default          => 'Normal',
+            };
+
+            // Ambil objek produk lengkap yang cocok dari tabel products
+            $productsCollection = Product::where('skin_type', 'LIKE', "%{$searchKeyword}%")
+                ->orWhere('target_problem', 'LIKE', "%{$searchKeyword}%")
+                ->limit(4)
+                ->get();
+
+            $matchedProductNames = $productsCollection->pluck('product_name')->implode(', ');
 
             $finalRecommendation = ($aiResult['recommendations'] ?? '');
-            if (!empty($matchedProducts)) {
-                $finalRecommendation .= " Rekomendasi produk yang cocok: {$matchedProducts}.";
+            if (!empty($matchedProductNames)) {
+                $finalRecommendation .= " Rekomendasi produk yang cocok: {$matchedProductNames}.";
             }
 
             // Simpan gambar ke storage publik
@@ -88,7 +98,9 @@ class SkinScanController extends Controller
                 'success' => true,
                 'message' => 'Analisis kulit dan penyimpanan riwayat berhasil',
                 'confidence' => $aiResult['confidence'] ?? null,
-                'data' => $skinScan
+                'all_probabilities' => $aiResult['all_probabilities'] ?? null,
+                'data' => $skinScan,
+                'recommended_products' => $productsCollection
             ], 201);
 
         } catch (\Exception $e) {
