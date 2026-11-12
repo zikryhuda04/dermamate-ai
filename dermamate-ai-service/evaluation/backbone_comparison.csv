@@ -1,0 +1,7 @@
+model,split,accuracy,macro_precision,macro_recall,macro_f1,kpi_passed_85pct
+resnet50,val,0.7826,0.7278,0.6975,0.706,False
+resnet50,test,0.7447,0.6945,0.7689,0.7116,False
+efficientnet_b0,val,0.8043,0.725,0.7225,0.7197,False
+efficientnet_b0,test,0.8511,0.8633,0.8525,0.8564,True
+soft_voting_ensemble,val,0.8261,0.7881,0.7767,0.78,False
+soft_voting_ensemble,test,0.8298,0.7919,0.8303,0.7983,False

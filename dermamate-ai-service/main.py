@@ -23,7 +23,10 @@ app = FastAPI(title="DermaMate AI Service")
 with open("models/class_mapping.json", "r") as f:
     config = json.load(f)
 
-idx_to_class = config.get("idx_to_class", {"0": "dry", "1": "normal", "2": "oily"})
+idx_to_class = config.get(
+    "idx_to_class",
+    {"0": "acne", "1": "combination", "2": "dry", "3": "normal", "4": "oily"},
+)
 clahe_clip = config["preprocessing"]["clahe_clip_limit"]
 clahe_grid = tuple(config["preprocessing"]["clahe_tile_grid_size"])
 target_size = tuple(config["preprocessing"]["input_resolution"])
@@ -125,6 +128,8 @@ async def analyze_skin(file: UploadFile = File(...)):
         print("================================================")
 
         label_map = {
+            "acne": "Jerawat (Acne)",
+            "combination": "Kombinasi",
             "dry": "Kering",
             "normal": "Normal",
             "oily": "Berminyak",
@@ -132,12 +137,16 @@ async def analyze_skin(file: UploadFile = File(...)):
         skin_type_id = label_map.get(raw_label.lower(), "Normal")
 
         issues_map = {
+            "Jerawat (Acne)": "Tampak lesi jerawat, pori tersumbat, atau kemerahan inflamasi pada area wajah.",
+            "Kombinasi": "Area T-zone (dahi, hidung, dagu) berminyak sedangkan area pipi normal atau kering.",
             "Berminyak": "Produksi sebum berlebih, pori-pori tampak besar, dan rentan komedo.",
             "Kering": "Kelembapan rendah, tekstur kulit terasa kencang atau bersisik.",
             "Normal": "Keseimbangan sebum dan hidrasi terjaga dengan baik.",
         }
 
         care_tips_map = {
+            "Jerawat (Acne)": "Gunakan pembersih Salicylic Acid (BHA), soothing serum Centella Asiatica / Niacinamide, dan hindari scrub mengiritasi.",
+            "Kombinasi": "Gunakan pembersih lembut ber-pH seimbang, pelembap gel ringan pada T-zone, dan hidrasi ekstra di area pipi.",
             "Berminyak": "Gunakan pembersih wajah berbahan Salicylic Acid dan pelembap berbasis air (oil-free).",
             "Kering": "Gunakan pembersih non-stripping dan pelembap dengan Ceramide atau Hyaluronic Acid.",
             "Normal": "Pertahankan pembersih lembut, hidrasi harian, dan tabir surya berkala.",
