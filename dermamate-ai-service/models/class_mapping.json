@@ -1,0 +1,40 @@
+{
+  "winner_architecture": "efficientnet_b0",
+  "classes": [
+    "dry",
+    "normal",
+    "oily"
+  ],
+  "class_to_idx": {
+    "dry": 0,
+    "normal": 1,
+    "oily": 2
+  },
+  "idx_to_class": {
+    "0": "dry",
+    "1": "normal",
+    "2": "oily"
+  },
+  "preprocessing": {
+    "face_detector": "mediapipe_short_range",
+    "clahe_clip_limit": 2.0,
+    "clahe_tile_grid_size": [
+      8,
+      8
+    ],
+    "input_resolution": [
+      224,
+      224
+    ],
+    "imagenet_mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "imagenet_std": [
+      0.229,
+      0.224,
+      0.225
+    ]
+  }
+}

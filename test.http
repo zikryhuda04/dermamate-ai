@@ -1,0 +1,11 @@
+POST http://127.0.0.1:8000/api/skin-scans
+Authorization: Bearer 3|2vnUiNnz3rKF6dGIAej3BrZY85dKlIDDVmKeJgNBddb5072b
+Accept: application/json
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="image"; filename="images.jpg"
+Content-Type: image/jpeg
+
+< ./muka normal.jpg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
