@@ -1,8 +1,9 @@
-**/vendor/
-**/node_modules/
-**/venv/
-**/__pycache__/
-.env
-**/.env
-*.jpg
-*.jpeg
+/dermamate-frontend/node_modules
+/dermamate-frontend/.next
+/dermamate-frontend/.env*
+/dermamate-ai-service/__pycache__
+/dermamate-ai-service/venv
+/dermamate-backend/vendor
+/dermamate-backend/.env
+/dermamate-backend/storage/app/public/scans/*
+!/dermamate-backend/storage/app/public/scans/.gitkeep
