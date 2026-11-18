@@ -22,6 +22,7 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/skin-scans', [SkinScanController::class, 'index']);
     Route::post('/skin-scans', [SkinScanController::class, 'store']);
+    Route::delete('/skin-scans/{id}', [SkinScanController::class, 'destroy']);
 
     // Rute Profil & Preferensi Pengguna
     Route::get('/profile', [ProfileController::class, 'show']);

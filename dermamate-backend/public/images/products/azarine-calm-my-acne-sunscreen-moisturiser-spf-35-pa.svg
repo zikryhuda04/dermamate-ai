@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500">
+  <rect width="500" height="500" fill="#FFF6E0"/>
+  <circle cx="250" cy="250" r="175" fill="#E69B28" fill-opacity="0.12"/>
+          <rect x="170" y="92" width="160" height="260" rx="16" fill="#FFFDF5" stroke="#E69B28" stroke-width="3"/>
+        <rect x="170" y="92" width="160" height="18" rx="4" fill="#E69B28"/>
+        <rect x="215" y="352" width="70" height="48" rx="8" fill="#E69B28"/>
+        <rect x="170" y="142" width="160" height="36" fill="#E69B28"/>
+        <text x="250" y="166" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#FFFFFF" text-anchor="middle">AZARINE</text>
+  <text x="250" y="210" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#4A3A20" text-anchor="middle">Calm My Acne</text>
+<text x="250" y="232" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#4A3A20" text-anchor="middle">Sunscreen</text>
+<text x="250" y="254" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#4A3A20" text-anchor="middle">Moisturiser SPF 35</text>
+<text x="250" y="276" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#4A3A20" text-anchor="middle">PA+++</text>
+
+  <rect x="165" y="425" width="170" height="28" rx="14" fill="#FFFFFF" stroke="#E69B28" stroke-width="1.5"/>
+  <text x="250" y="444" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#E69B28" text-anchor="middle">SUNSCREEN</text>
+</svg>
